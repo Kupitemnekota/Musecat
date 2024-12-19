@@ -1,0 +1,163 @@
+[gd_scene load_steps=13 format=3 uid="uid://dmomhcnv7ea7g"]
+
+[ext_resource type="Script" path="res://scripts/cat.gd" id="1_lwmpl"]
+[ext_resource type="Texture2D" uid="uid://dx2f67a48gvla" path="res://sprites/cats/image.png" id="1_utmoo"]
+[ext_resource type="Texture2D" uid="uid://cjb4yeimsmine" path="res://sprites/cats/image1.png" id="1_yb0x4"]
+[ext_resource type="Texture2D" uid="uid://bip1f6uaetldn" path="res://sprites/cats/sleep2.png" id="2_4n51o"]
+[ext_resource type="Texture2D" uid="uid://dxvam3vllrrn5" path="res://sprites/cats/Cat_spite_guitar2.png" id="2_f57ih"]
+[ext_resource type="Texture2D" uid="uid://cwk0ygo04gdsl" path="res://sprites/instruments/guitar.png" id="3_8a5w0"]
+[ext_resource type="Texture2D" uid="uid://dwhuap3vgiwq8" path="res://sprites/cats/Cat_sprite_guitar1.png" id="3_itb7y"]
+[ext_resource type="Script" path="res://scripts/instrument.gd" id="5_aa058"]
+[ext_resource type="Texture2D" uid="uid://dalc04d12g45e" path="res://sprites/cats/sleep1.png" id="6_7dlsc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b5gff"]
+size = Vector2(277, 237)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lfjgy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_f57ih")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_itb7y")
+}],
+"loop": true,
+"name": &"playing_guitar",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_utmoo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_yb0x4")
+}],
+"loop": true,
+"name": &"playing_violin",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_7dlsc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_4n51o")
+}],
+"loop": true,
+"name": &"sleep",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mbahj"]
+size = Vector2(137, 137)
+
+[node name="main" type="Node2D"]
+
+[node name="cat1" type="Area2D" parent="."]
+position = Vector2(531, 460)
+collision_mask = 2
+script = ExtResource("1_lwmpl")
+
+[node name="collision" type="CollisionShape2D" parent="cat1"]
+position = Vector2(8.5, 15.5)
+shape = SubResource("RectangleShape2D_b5gff")
+
+[node name="cat_sprite" type="AnimatedSprite2D" parent="cat1"]
+position = Vector2(18, -7.99999)
+scale = Vector2(0.146567, 0.146567)
+sprite_frames = SubResource("SpriteFrames_lfjgy")
+animation = &"playing_guitar"
+autoplay = "sleep"
+frame_progress = 0.629764
+
+[node name="cat2" type="Area2D" parent="."]
+position = Vector2(970, 454)
+collision_mask = 2
+script = ExtResource("1_lwmpl")
+
+[node name="collision" type="CollisionShape2D" parent="cat2"]
+position = Vector2(8.5, 15.5)
+shape = SubResource("RectangleShape2D_b5gff")
+
+[node name="cat_sprite" type="AnimatedSprite2D" parent="cat2"]
+position = Vector2(18, -7.99999)
+scale = Vector2(0.146567, 0.146567)
+sprite_frames = SubResource("SpriteFrames_lfjgy")
+animation = &"playing_guitar"
+autoplay = "sleep"
+
+[node name="cat3" type="Area2D" parent="."]
+position = Vector2(1327, 457)
+collision_mask = 2
+script = ExtResource("1_lwmpl")
+
+[node name="collision" type="CollisionShape2D" parent="cat3"]
+position = Vector2(8.5, 15.5)
+shape = SubResource("RectangleShape2D_b5gff")
+
+[node name="cat_sprite" type="AnimatedSprite2D" parent="cat3"]
+position = Vector2(18, -7.99999)
+scale = Vector2(0.146567, 0.146567)
+sprite_frames = SubResource("SpriteFrames_lfjgy")
+animation = &"playing_guitar"
+autoplay = "sleep"
+frame_progress = 0.405243
+
+[node name="instruments" type="Node2D" parent="."]
+
+[node name="violin" type="Area2D" parent="instruments"]
+z_index = 1
+position = Vector2(502, 808)
+collision_layer = 2
+script = ExtResource("5_aa058")
+
+[node name="collision" type="CollisionShape2D" parent="instruments/violin"]
+shape = SubResource("RectangleShape2D_mbahj")
+
+[node name="violin_sprite" type="Sprite2D" parent="instruments/violin"]
+scale = Vector2(0.0663604, 0.0663604)
+texture = ExtResource("1_utmoo")
+
+[node name="guitar" type="Area2D" parent="instruments"]
+z_index = 1
+position = Vector2(684, 808)
+collision_layer = 2
+script = ExtResource("5_aa058")
+
+[node name="collision" type="CollisionShape2D" parent="instruments/guitar"]
+shape = SubResource("RectangleShape2D_mbahj")
+
+[node name="guitar_sprite" type="Sprite2D" parent="instruments/guitar"]
+scale = Vector2(0.11318, 0.11318)
+texture = ExtResource("3_8a5w0")
+
+[node name="empty_sprites" type="Node2D" parent="."]
+
+[node name="violin" type="Sprite2D" parent="empty_sprites"]
+modulate = Color(0.298039, 0.298039, 0.298039, 1)
+position = Vector2(502, 808)
+scale = Vector2(0.066, 0.066)
+texture = ExtResource("1_utmoo")
+
+[node name="guitar" type="Sprite2D" parent="empty_sprites"]
+modulate = Color(0.298039, 0.298039, 0.298039, 1)
+position = Vector2(684, 808)
+scale = Vector2(0.113, 0.113)
+texture = ExtResource("3_8a5w0")
+
+[connection signal="area_entered" from="cat1" to="cat1" method="_on_area_entered"]
+[connection signal="area_exited" from="cat1" to="cat1" method="_on_area_exited"]
+[connection signal="input_event" from="cat1" to="cat1" method="_on_input_event"]
+[connection signal="area_entered" from="cat2" to="cat2" method="_on_area_entered"]
+[connection signal="area_exited" from="cat2" to="cat2" method="_on_area_exited"]
+[connection signal="input_event" from="cat2" to="cat2" method="_on_input_event"]
+[connection signal="area_entered" from="cat3" to="cat3" method="_on_area_entered"]
+[connection signal="area_exited" from="cat3" to="cat3" method="_on_area_exited"]
+[connection signal="input_event" from="cat3" to="cat3" method="_on_input_event"]
+[connection signal="area_entered" from="instruments/violin" to="instruments/violin" method="_on_area_entered"]
+[connection signal="area_exited" from="instruments/violin" to="instruments/violin" method="_on_area_exited"]
+[connection signal="input_event" from="instruments/violin" to="instruments/violin" method="_on_input_event"]
+[connection signal="area_entered" from="instruments/guitar" to="instruments/guitar" method="_on_area_entered"]
+[connection signal="area_exited" from="instruments/guitar" to="instruments/guitar" method="_on_area_exited"]
+[connection signal="input_event" from="instruments/guitar" to="instruments/guitar" method="_on_input_event"]
