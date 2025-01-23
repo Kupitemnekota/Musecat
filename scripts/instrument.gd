@@ -33,6 +33,5 @@ func _on_area_exited(area: Area2D) -> void:
 	set_meta("cat_counter", get_meta("cat_counter") - 1)
 
 func _physics_process(delta: float) -> void:
-	print(get_meta("cat_counter"))
 	if Input.is_action_just_released("left_key"):
 		self.position = start_position

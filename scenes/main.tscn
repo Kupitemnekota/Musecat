@@ -1,26 +1,28 @@
-[gd_scene load_steps=13 format=3 uid="uid://dmomhcnv7ea7g"]
+[gd_scene load_steps=14 format=3 uid="uid://dmomhcnv7ea7g"]
 
 [ext_resource type="Script" path="res://scripts/cat.gd" id="1_lwmpl"]
-[ext_resource type="Texture2D" uid="uid://dx2f67a48gvla" path="res://sprites/cats/image.png" id="1_utmoo"]
-[ext_resource type="Texture2D" uid="uid://cjb4yeimsmine" path="res://sprites/cats/image1.png" id="1_yb0x4"]
-[ext_resource type="Texture2D" uid="uid://bip1f6uaetldn" path="res://sprites/cats/sleep2.png" id="2_4n51o"]
-[ext_resource type="Texture2D" uid="uid://dxvam3vllrrn5" path="res://sprites/cats/Cat_spite_guitar2.png" id="2_f57ih"]
-[ext_resource type="Texture2D" uid="uid://cwk0ygo04gdsl" path="res://sprites/instruments/guitar.png" id="3_8a5w0"]
-[ext_resource type="Texture2D" uid="uid://dwhuap3vgiwq8" path="res://sprites/cats/Cat_sprite_guitar1.png" id="3_itb7y"]
+[ext_resource type="Texture2D" uid="uid://cqm34an0atyxl" path="res://sprites/cats/play_guitar/Cat_spite_guitar2.png" id="2_1jhpi"]
+[ext_resource type="Texture2D" uid="uid://cgvasf7b543v8" path="res://sprites/instruments/violin/Violinnorm.png" id="3_8jsq4"]
+[ext_resource type="Texture2D" uid="uid://bpasvt0lt01ws" path="res://sprites/cats/play_guitar/Cat_sprite_guitar1.png" id="3_lg2uk"]
+[ext_resource type="Texture2D" uid="uid://jxysnucws65h" path="res://sprites/cats/sleep/cat-sleep1.png" id="4_6711r"]
+[ext_resource type="Texture2D" uid="uid://c38e8ef23r7fv" path="res://sprites/instruments/guitar/guitar1.png" id="4_l0fxs"]
 [ext_resource type="Script" path="res://scripts/instrument.gd" id="5_aa058"]
-[ext_resource type="Texture2D" uid="uid://dalc04d12g45e" path="res://sprites/cats/sleep1.png" id="6_7dlsc"]
+[ext_resource type="Texture2D" uid="uid://c4mtgm026a7b" path="res://sprites/cats/sleep/cat-sleep2.png" id="5_tbsqs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b5gff"]
 size = Vector2(278, 210)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q0q6f"]
+load_path = "res://.godot/imported/image1.png-202d7b6999e6cd9e771b2190376d1099.ctex"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lfjgy"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_f57ih")
+"texture": ExtResource("2_1jhpi")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_itb7y")
+"texture": ExtResource("3_lg2uk")
 }],
 "loop": true,
 "name": &"playing_guitar",
@@ -28,10 +30,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_utmoo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("1_yb0x4")
+"texture": SubResource("CompressedTexture2D_q0q6f")
 }],
 "loop": true,
 "name": &"playing_violin",
@@ -39,10 +38,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_7dlsc")
+"texture": ExtResource("4_6711r")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_4n51o")
+"texture": ExtResource("5_tbsqs")
 }],
 "loop": true,
 "name": &"sleep",
@@ -50,7 +49,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mbahj"]
-size = Vector2(137, 137)
+size = Vector2(86, 84)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b2o4l"]
+size = Vector2(142, 151)
 
 [node name="main" type="Node2D"]
 
@@ -69,38 +71,7 @@ scale = Vector2(0.146567, 0.146567)
 sprite_frames = SubResource("SpriteFrames_lfjgy")
 animation = &"sleep"
 autoplay = "sleep"
-
-[node name="cat2" type="Area2D" parent="."]
-position = Vector2(968, 461)
-collision_mask = 2
-script = ExtResource("1_lwmpl")
-metadata/is_playing = false
-
-[node name="collision" type="CollisionShape2D" parent="cat2"]
-position = Vector2(1, 20)
-shape = SubResource("RectangleShape2D_b5gff")
-
-[node name="cat_sprite" type="AnimatedSprite2D" parent="cat2"]
-scale = Vector2(0.146567, 0.146567)
-sprite_frames = SubResource("SpriteFrames_lfjgy")
-animation = &"sleep"
-autoplay = "sleep"
-
-[node name="cat3" type="Area2D" parent="."]
-position = Vector2(1280, 463)
-collision_mask = 2
-script = ExtResource("1_lwmpl")
-metadata/is_playing = false
-
-[node name="collision" type="CollisionShape2D" parent="cat3"]
-position = Vector2(1, 20)
-shape = SubResource("RectangleShape2D_b5gff")
-
-[node name="cat_sprite" type="AnimatedSprite2D" parent="cat3"]
-scale = Vector2(0.146567, 0.146567)
-sprite_frames = SubResource("SpriteFrames_lfjgy")
-animation = &"sleep"
-autoplay = "sleep"
+frame_progress = 0.27415
 
 [node name="instruments" type="Node2D" parent="."]
 
@@ -112,11 +83,12 @@ script = ExtResource("5_aa058")
 metadata/cat_counter = 0
 
 [node name="collision" type="CollisionShape2D" parent="instruments/violin"]
+position = Vector2(2, 0)
 shape = SubResource("RectangleShape2D_mbahj")
 
 [node name="violin_sprite" type="Sprite2D" parent="instruments/violin"]
 scale = Vector2(0.0663604, 0.0663604)
-texture = ExtResource("1_utmoo")
+texture = ExtResource("3_8jsq4")
 
 [node name="guitar" type="Area2D" parent="instruments"]
 z_index = 1
@@ -126,11 +98,12 @@ script = ExtResource("5_aa058")
 metadata/cat_counter = 0
 
 [node name="collision" type="CollisionShape2D" parent="instruments/guitar"]
-shape = SubResource("RectangleShape2D_mbahj")
+position = Vector2(1, -0.5)
+shape = SubResource("RectangleShape2D_b2o4l")
 
 [node name="guitar_sprite" type="Sprite2D" parent="instruments/guitar"]
 scale = Vector2(0.113, 0.113)
-texture = ExtResource("3_8a5w0")
+texture = ExtResource("4_l0fxs")
 
 [node name="empty_sprites" type="Node2D" parent="."]
 
@@ -138,29 +111,21 @@ texture = ExtResource("3_8a5w0")
 modulate = Color(0.298039, 0.298039, 0.298039, 1)
 position = Vector2(502, 808)
 scale = Vector2(0.066, 0.066)
-texture = ExtResource("1_utmoo")
+texture = ExtResource("3_8jsq4")
 
 [node name="guitar" type="Sprite2D" parent="empty_sprites"]
 modulate = Color(0.298039, 0.298039, 0.298039, 1)
 position = Vector2(684, 808)
 scale = Vector2(0.113, 0.113)
-texture = ExtResource("3_8a5w0")
+texture = ExtResource("4_l0fxs")
 
 [connection signal="area_entered" from="cat1" to="cat1" method="_on_area_entered"]
 [connection signal="area_exited" from="cat1" to="cat1" method="_on_area_exited"]
+[connection signal="get_instrument" from="cat1" to="cat1" method="_on_get_instrument"]
 [connection signal="input_event" from="cat1" to="cat1" method="_on_input_event"]
 [connection signal="mouse_entered" from="cat1" to="cat1" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="cat1" to="cat1" method="_on_mouse_exited"]
-[connection signal="area_entered" from="cat2" to="cat2" method="_on_area_entered"]
-[connection signal="area_exited" from="cat2" to="cat2" method="_on_area_exited"]
-[connection signal="input_event" from="cat2" to="cat2" method="_on_input_event"]
-[connection signal="mouse_entered" from="cat2" to="cat2" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="cat2" to="cat2" method="_on_mouse_exited"]
-[connection signal="area_entered" from="cat3" to="cat3" method="_on_area_entered"]
-[connection signal="area_exited" from="cat3" to="cat3" method="_on_area_exited"]
-[connection signal="input_event" from="cat3" to="cat3" method="_on_input_event"]
-[connection signal="mouse_entered" from="cat3" to="cat3" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="cat3" to="cat3" method="_on_mouse_exited"]
+[connection signal="return_instrument" from="cat1" to="cat1" method="_on_return_instrument"]
 [connection signal="area_entered" from="instruments/violin" to="instruments/violin" method="_on_area_entered"]
 [connection signal="area_exited" from="instruments/violin" to="instruments/violin" method="_on_area_exited"]
 [connection signal="input_event" from="instruments/violin" to="instruments/violin" method="_on_input_event"]
