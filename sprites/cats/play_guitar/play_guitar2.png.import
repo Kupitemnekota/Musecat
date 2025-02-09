@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2apicwrs3nov"
-path="res://.godot/imported/guitar1.png-56b4334e480dd20589905803611d73ac.ctex"
+uid="uid://d35347r8t1iif"
+path="res://.godot/imported/play_guitar2.png-611e64c5e88b2f3601b7bdaad2c6a072.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/instruments/guitar/guitar1.png"
-dest_files=["res://.godot/imported/guitar1.png-56b4334e480dd20589905803611d73ac.ctex"]
+source_file="res://sprites/cats/play_guitar/play_guitar2.png"
+dest_files=["res://.godot/imported/play_guitar2.png-611e64c5e88b2f3601b7bdaad2c6a072.ctex"]
 
 [params]
 

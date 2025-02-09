@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ba4mnoqtl7u1a"
-path="res://.godot/imported/cat_sprite_trumpet2.png-ea4ca85ef8ff9ca5c889c4a48a12ead9.ctex"
+uid="uid://ymh61efviv4v"
+path="res://.godot/imported/play_piano2.png-e7914772c9f714bb4143778c1e364b15.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/cats/play_trumpet/cat_sprite_trumpet2.png"
-dest_files=["res://.godot/imported/cat_sprite_trumpet2.png-ea4ca85ef8ff9ca5c889c4a48a12ead9.ctex"]
+source_file="res://sprites/cats/play_piano/play_piano2.png"
+dest_files=["res://.godot/imported/play_piano2.png-e7914772c9f714bb4143778c1e364b15.ctex"]
 
 [params]
 

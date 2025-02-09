@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ba4mnoqtl7u1a"
-path="res://.godot/imported/cat_sprite_trumpet2.png-ea4ca85ef8ff9ca5c889c4a48a12ead9.ctex"
+uid="uid://5ewlktlyd2hy"
+path="res://.godot/imported/guitar.png-4b49bcc23ebe13fa3140eb30271c4a04.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/cats/play_trumpet/cat_sprite_trumpet2.png"
-dest_files=["res://.godot/imported/cat_sprite_trumpet2.png-ea4ca85ef8ff9ca5c889c4a48a12ead9.ctex"]
+source_file="res://sprites/instruments/guitar/guitar.png"
+dest_files=["res://.godot/imported/guitar.png-4b49bcc23ebe13fa3140eb30271c4a04.ctex"]
 
 [params]
 

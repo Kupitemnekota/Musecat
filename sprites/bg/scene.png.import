@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vg8jr3fboanr"
-path="res://.godot/imported/Violinnorm.png-a5e23aaac8d6746d3da7f2011c45495f.ctex"
+uid="uid://dmg37ff0y22ke"
+path="res://.godot/imported/scene.png-b60141eadb7ca4cf59d88e22ac69a65d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/instruments/violin/Violinnorm.png"
-dest_files=["res://.godot/imported/Violinnorm.png-a5e23aaac8d6746d3da7f2011c45495f.ctex"]
+source_file="res://sprites/bg/scene.png"
+dest_files=["res://.godot/imported/scene.png-b60141eadb7ca4cf59d88e22ac69a65d.ctex"]
 
 [params]
 

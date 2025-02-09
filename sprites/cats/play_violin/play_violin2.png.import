@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ti7cb2tlccuv"
-path="res://.godot/imported/Cat_spite_guitar2.png-5f544a2f2a5243b7d0f41ce3d2d403bc.ctex"
+uid="uid://cpyssxxwdscuu"
+path="res://.godot/imported/play_violin2.png-46b5218ebe4a9dfe46b2672a5b4194bc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/cats/play_guitar/Cat_spite_guitar2.png"
-dest_files=["res://.godot/imported/Cat_spite_guitar2.png-5f544a2f2a5243b7d0f41ce3d2d403bc.ctex"]
+source_file="res://sprites/cats/play_violin/play_violin2.png"
+dest_files=["res://.godot/imported/play_violin2.png-46b5218ebe4a9dfe46b2672a5b4194bc.ctex"]
 
 [params]
 
