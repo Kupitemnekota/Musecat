@@ -1,0 +1,118 @@
+[gd_scene load_steps=18 format=3 uid="uid://bqxpccw0l6fby"]
+
+[ext_resource type="Script" path="res://scripts/cat.gd" id="1_kulwn"]
+[ext_resource type="Texture2D" uid="uid://bo2bw5lb7hs0s" path="res://sprites/cats/play_drum/play_drum1.png" id="2_6t4on"]
+[ext_resource type="Texture2D" uid="uid://b5vr44yebktrm" path="res://sprites/cats/play_drum/play_drum2.png" id="3_88kle"]
+[ext_resource type="Texture2D" uid="uid://dq5a4v114mvma" path="res://sprites/cats/play_drum/play_drum3.png" id="4_vdhy4"]
+[ext_resource type="Texture2D" uid="uid://dy1pd20lrxeg7" path="res://sprites/cats/play_guitar/play_guitar1.png" id="5_w4wed"]
+[ext_resource type="Texture2D" uid="uid://d35347r8t1iif" path="res://sprites/cats/play_guitar/play_guitar2.png" id="6_cj0w1"]
+[ext_resource type="Texture2D" uid="uid://ci8cb00g787tq" path="res://sprites/cats/play_piano/play_piano1.png" id="7_fiyf1"]
+[ext_resource type="Texture2D" uid="uid://ymh61efviv4v" path="res://sprites/cats/play_piano/play_piano2.png" id="8_7m2rq"]
+[ext_resource type="Texture2D" uid="uid://b7feylsqry7bf" path="res://sprites/cats/play_trumpet/play_trumpet1.png" id="9_iw7xn"]
+[ext_resource type="Texture2D" uid="uid://yagwa4onr8o1" path="res://sprites/cats/play_trumpet/play_trumpet2.png" id="10_1ksdo"]
+[ext_resource type="Texture2D" uid="uid://d1y8vynsj8nin" path="res://sprites/cats/play_trumpet/play_trumpet3.png" id="11_2hqj1"]
+[ext_resource type="Texture2D" uid="uid://diu2d0ssj6oiu" path="res://sprites/cats/play_violin/play_violin1.png" id="12_u2fk7"]
+[ext_resource type="Texture2D" uid="uid://cpyssxxwdscuu" path="res://sprites/cats/play_violin/play_violin2.png" id="13_tnw8d"]
+[ext_resource type="Texture2D" uid="uid://c5ylxqqqput8v" path="res://sprites/cats/sleep/cat_sleep1.png" id="14_p1jyk"]
+[ext_resource type="Texture2D" uid="uid://cvd711awl8whk" path="res://sprites/cats/sleep/cat_sleep2.png" id="15_gbona"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b5gff"]
+size = Vector2(1307.42, 1252.53)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lfjgy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6t4on")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_88kle")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vdhy4")
+}],
+"loop": true,
+"name": &"playing_drum",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_w4wed")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_cj0w1")
+}],
+"loop": true,
+"name": &"playing_guitar",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_fiyf1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7m2rq")
+}],
+"loop": true,
+"name": &"playing_piano",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_iw7xn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_1ksdo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_2hqj1")
+}],
+"loop": true,
+"name": &"playing_trumpet",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_u2fk7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_tnw8d")
+}],
+"loop": true,
+"name": &"playing_violin",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_p1jyk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_gbona")
+}],
+"loop": true,
+"name": &"sleep",
+"speed": 2.0
+}]
+
+[node name="Cat" type="Area2D"]
+position = Vector2(390, 364)
+scale = Vector2(0.4, 0.4)
+collision_mask = 2
+script = ExtResource("1_kulwn")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(-29.9412, 17.4656)
+shape = SubResource("RectangleShape2D_b5gff")
+
+[node name="CatSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lfjgy")
+animation = &"playing_drum"
+autoplay = "sleep"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="get_instrument" from="." to="." method="_on_get_instrument"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="return_instrument" from="." to="." method="_on_return_instrument"]

@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbw2htxh3fjxg"]
+
+[ext_resource type="Script" path="res://scripts/instrument.gd" id="1_wbrxy"]
+[ext_resource type="Texture2D" uid="uid://b064jlj1fq2v8" path="res://sprites/instruments/violin.png" id="2_88u7d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mbahj"]
+size = Vector2(1214.01, 1228.68)
+
+[node name="Instrument" type="Area2D"]
+z_index = 1
+scale = Vector2(0.255558, 0.255558)
+collision_layer = 2
+script = ExtResource("1_wbrxy")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mbahj")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_88u7d")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]
